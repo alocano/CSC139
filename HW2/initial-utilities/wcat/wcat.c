@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-    // Check if file specified, 
+    // Check if file specified, if not, exit 
     if (argc == 1) {
-        return 0;
+        exit(0);
     }
     
     // Process each file
@@ -27,5 +27,5 @@ int main(int argc, char *argv[]) {
         fclose(fp);
     }
     
-    return 0;
+    exit(0);
 }

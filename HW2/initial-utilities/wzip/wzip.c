@@ -24,15 +24,12 @@ int main(int argc, char *argv[]) {
         int c;
         while ((c = fgetc(fp)) != EOF) {
             if (first_char) {
-                // First character we've seen
                 current_char = (char)c;
                 count = 1;
                 first_char = 0;
             } else if ((char)c == current_char) {
-                // Same character, increment count
                 count++;
             } else {
-                // Different character, write out the previous run
                 fwrite(&count, sizeof(int), 1, stdout);
                 fwrite(&current_char, sizeof(char), 1, stdout);
                 
@@ -51,5 +48,5 @@ int main(int argc, char *argv[]) {
         fwrite(&current_char, sizeof(char), 1, stdout);
     }
     
-    return 0;
+    exit(0);
 }

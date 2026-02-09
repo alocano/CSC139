@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
     // If no files specified, read from stdin
     if (argc == 2) {
         searchFile(stdin, searchterm);
-        return 0;
+        exit(0);
     }
     
     // Process each file
@@ -47,5 +47,5 @@ int main(int argc, char *argv[]) {
         fclose(fp);
     }
     
-    return 0;
+    exit(0);
 }

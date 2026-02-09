@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-    // Check if at least one file is provided
+    // Check if at least one file is provided, if not return err message
     if (argc < 2) {
         printf("wunzip: file1 [file2 ...]\n");
         exit(1);
@@ -33,5 +33,5 @@ int main(int argc, char *argv[]) {
         fclose(fp);
     }
     
-    return 0;
+    exit(0);
 }
