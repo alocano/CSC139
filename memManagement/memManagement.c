@@ -126,7 +126,7 @@ int lru(int *pages, int n, int n_frames, int trace) {
             fault = 1;
             faults++;
  
-            /* Look for an empty slot first */
+            //Look for an empty slot first
             int victim = -1;
             for (int j = 0; j < n_frames; j++) {
                 if (frames[j] == -1) {
@@ -135,7 +135,7 @@ int lru(int *pages, int n, int n_frames, int trace) {
                 }
             }
  
-            /* No empty slot: find the least recently used frame */
+            //No empty slot: find the least recently used frame
             if (victim == -1) {
                 int lru_time = last_used[0];
                 victim = 0;
@@ -195,7 +195,7 @@ int opt(int *pages, int n, int n_frames, int trace) {
             fault = 1;
             faults++;
  
-            /* Look for an empty slot first */
+            //Look for an empty slot first 
             int victim = -1;
             for (int j = 0; j < n_frames; j++) {
                 if (frames[j] == -1) {
@@ -204,11 +204,11 @@ int opt(int *pages, int n, int n_frames, int trace) {
                 }
             }
  
-            /* No empty slot: evict the page used farthest in the future */
+            //No empty slot: evict the page used farthest in the future 
             if (victim == -1) {
                 int farthest = -1;
                 for (int j = 0; j < n_frames; j++) {
-                    int next_use = n;  /* n = "never used again" sentinel */
+                    int next_use = n;  //n: not used again
                     for (int k = i + 1; k < n; k++) {
                         if (pages[k] == frames[j]) {
                             next_use = k;
@@ -330,7 +330,7 @@ int main(void) {
         opt(pages, n, trace_frames, 1);
     }
  
-    /* --- Summary table --- */
+    //output summary table
     print_summary(pages, n);
  
     return 0;
